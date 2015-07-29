@@ -3,8 +3,40 @@
 <head>
 	<meta charset="UTF-8">
 	<title>yangbai</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.top {
+			height: 80px;
+			background: #ccc;
+		}
+		.main {
+			width: 888px;
+			margin: 0 auto;
+			height: 600px;
+			background: #090;
+		}
+		.left {
+			position: absolute;
+			width: 200px;
+			height: 600px;
+			background: red;
+		}
+		.right {
+			margin-left: 200px;
+			height: 600px;
+			background: blue;
+		}
+	</style>
 </head>
 <body>
-	hello world
+	<div class="top"></div>
+	<div class="main">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+	<div class="bottom"></div>
 </body>
 </html>
