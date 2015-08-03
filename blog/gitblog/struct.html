@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Your-GitBlog</title>
-	<meta name="keywords" content="GitBlog,博客,Markdown博客,jockchou">
-	<meta name="description" content="GitBlog是一个简单易用的Markdown博客系统">
+	<title>GitBlog目录结构|Your-GitBlog </title>
+	<meta name="keywords" content="GitBlog,GitBlog,GitBlog,博客,Markdown博客,jockchou">
+	<meta name="description" content="Gitblog采用流行的PHP框架CodeIgniter开发，只是我对一些目录进行了重命名。如果你熟悉CodeIgniter框架，那你一定不会陌生。">
 	<link rel="stylesheet" href="/theme/simple/css/main.css?ver=1.0">
 	<link rel="alternate" type="application/rss+xml" title="Your-GitBlog" href="//feed.xml" />
 	
@@ -19,60 +19,51 @@
 </header>
 	<div class="page-content">
 		<div class="wrapper">
-			<div class="home">
-	<h1 class="page-heading">自豪地采用GitBlog</h1>
-		<ul class="post-list">
-						<li>
-			<span class="post-meta">2015-07-31</span>
-			<h2><a class="post-link" href="/blog/welcome.html">欢迎使用Gitblog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-30</span>
-			<h2><a class="post-link" href="/blog/gitblog/install.html">GitBlog安装</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-29</span>
-			<h2><a class="post-link" href="/blog/gitblog/struct.html">GitBlog目录结构</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-28</span>
-			<h2><a class="post-link" href="/blog/gitblog/config.html">GitBlog配置</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-27</span>
-			<h2><a class="post-link" href="/blog/gitblog/edit.html">编写Gitblog博客</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-26</span>
-			<h2><a class="post-link" href="/blog/gitblog/other-func.html">GitBlog评论，订阅，统计等功能</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-25</span>
-			<h2><a class="post-link" href="/blog/gitblog/cache.html">GitBlog的缓存机制</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-24</span>
-			<h2><a class="post-link" href="/blog/gitblog/export.html">Gitblog全站静态导出</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-23</span>
-			<h2><a class="post-link" href="/blog/gitblog/theme.html">Gitblog主题制作</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-22</span>
-			<h2><a class="post-link" href="/blog/gitblog/nginx.html">在Nginx上运行GitBlog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-21</span>
-			<h2><a class="post-link" href="/blog/gitblog/sae.html">在新浪SAE上运行GitBlog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-20</span>
-			<h2><a class="post-link" href="/blog/gitblog/github-pages.html">使用Gitblog和Github Pages搭建博客</a></h2>
-		</li>
-					</ul>
-	<p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-		
+			<div class="post">
+	<header class="post-header">
+		<h1 class="post-title">GitBlog目录结构</h1>
+		<p class="post-meta">2015-07-29 • jockchou • GitBlog,GitBlog</p>
+	</header>
+	<article class="post-content">
+		<!--
+author: jockchou
+date: 2015-07-29
+title: GitBlog目录结构
+tags: GitBlog
+category: GitBlog
+status: publish
+summary: Gitblog采用流行的PHP框架CodeIgniter开发，只是我对一些目录进行了重命名。如果你熟悉CodeIgniter框架，那你一定不会陌生。
+-->
+<p>Gitblog采用流行的PHP框架<code>CodeIgniter</code>开发，只是我对一些目录进行了重命名。如果你熟悉CodeIgniter框架，那你一定不会陌生。</p>
+<h2>目录结构如下</h2>
+<p>Gitblog的目录结构如下所示：</p>
+<pre><code>.
+├── app
+│   ├── cache
+│   └── logs
+├── theme
+│   ├── default
+│   ├── quest
+│   └── simple
+├── sys
+├── img
+├── posts
+├── conf.yaml
+├── favicon.ico
+├── index.php
+├── LICENSE
+└── robots.txt</code></pre>
+<h2>目录说明</h2>
+<ul>
+<li>app: CodeIgniter主程序目录，cache和logs分别是缓存和日志目录，请确保写的权限    </li>
+<li>sys： CodeIgniter系统源码目录，一般不需要改这里面的任何东西  </li>
+<li>theme： Gitblog主题目录，所有主题模板都放在这里    </li>
+<li>posts: Gitblog存放markdown博客文件的目录，你写的博客都放这里  </li>
+<li>img： 图片目录，你的markdown中引用的图片都放到这里，使用相对路径引用  </li>
+<li>conf.yaml: Gitblog配置文件  </li>
+<li>index.php: 入口php文件  </li>
+</ul>
+	</article>
 	
 	</div>
 		</div>

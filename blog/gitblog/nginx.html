@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Your-GitBlog</title>
-	<meta name="keywords" content="GitBlog,博客,Markdown博客,jockchou">
-	<meta name="description" content="GitBlog是一个简单易用的Markdown博客系统">
+	<title>在Nginx上运行GitBlog|Your-GitBlog </title>
+	<meta name="keywords" content="GitBlog,GitBlog,GitBlog,博客,Markdown博客,jockchou">
+	<meta name="description" content="如果你自己拥有服务器或者云平台提供的云主机，我推荐你使用Linux+[Nginx](http">
 	<link rel="stylesheet" href="/theme/simple/css/main.css?ver=1.0">
 	<link rel="alternate" type="application/rss+xml" title="Your-GitBlog" href="//feed.xml" />
 	
@@ -19,60 +19,66 @@
 </header>
 	<div class="page-content">
 		<div class="wrapper">
-			<div class="home">
-	<h1 class="page-heading">自豪地采用GitBlog</h1>
-		<ul class="post-list">
-						<li>
-			<span class="post-meta">2015-07-31</span>
-			<h2><a class="post-link" href="/blog/welcome.html">欢迎使用Gitblog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-30</span>
-			<h2><a class="post-link" href="/blog/gitblog/install.html">GitBlog安装</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-29</span>
-			<h2><a class="post-link" href="/blog/gitblog/struct.html">GitBlog目录结构</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-28</span>
-			<h2><a class="post-link" href="/blog/gitblog/config.html">GitBlog配置</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-27</span>
-			<h2><a class="post-link" href="/blog/gitblog/edit.html">编写Gitblog博客</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-26</span>
-			<h2><a class="post-link" href="/blog/gitblog/other-func.html">GitBlog评论，订阅，统计等功能</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-25</span>
-			<h2><a class="post-link" href="/blog/gitblog/cache.html">GitBlog的缓存机制</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-24</span>
-			<h2><a class="post-link" href="/blog/gitblog/export.html">Gitblog全站静态导出</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-23</span>
-			<h2><a class="post-link" href="/blog/gitblog/theme.html">Gitblog主题制作</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-22</span>
-			<h2><a class="post-link" href="/blog/gitblog/nginx.html">在Nginx上运行GitBlog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-21</span>
-			<h2><a class="post-link" href="/blog/gitblog/sae.html">在新浪SAE上运行GitBlog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-20</span>
-			<h2><a class="post-link" href="/blog/gitblog/github-pages.html">使用Gitblog和Github Pages搭建博客</a></h2>
-		</li>
-					</ul>
-	<p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-		
+			<div class="post">
+	<header class="post-header">
+		<h1 class="post-title">在Nginx上运行GitBlog</h1>
+		<p class="post-meta">2015-07-22 • jockchou • GitBlog,GitBlog</p>
+	</header>
+	<article class="post-content">
+		<!--
+author: jockchou
+date: 2015-07-22
+title: 在Nginx上运行GitBlog
+tags: GitBlog
+category: GitBlog
+status: publish
+summary: 如果你自己拥有服务器或者云平台提供的云主机，我推荐你使用Linux+[Nginx](http://nginx.org/)来运行Gitblog，如果你目前只有Apache环境也是可以的。
+-->
+<p>如果你自己拥有服务器或者云平台提供的云主机，我推荐你使用Linux+<a href="http://nginx.org/">Nginx</a>来运行Gitblog，如果你目前只有Apache环境也是可以的。</p>
+<h2>域名解析</h2>
+<p>将你准备好的域名解析到你的主机IP，推荐使用<a href="https://www.dnspod.cn/">dnspod</a>来管理和监控你的域名，具体的使用方法参考dnspod官方说明文档，非常简单。</p>
+<h2>Nginx+PHP运行环境</h2>
+<p>首先安装好你的Nginx和PHP环境，PHP版本要求5.3以上。如果你没有安装过，可Google搜索相关教程，也可以参照Nginx和PHP官方的文档。这是第一步，有一个正常的Nginx + PHP的运行环境。</p>
+<h2>配置Nginx</h2>
+<p>nginx可参考如下配置：</p>
+<pre><code>server {
+        listen       80;
+        server_name  jockchou.gitblog.cn;
+        root         /data/vhosts/jockchou.gitblog.cn;
+        index        index.html index.htm index.php;
+
+        location ~ \.(jpg|png|gif|js|css|swf|flv|ico)$ {
+                 expires 12h;
+        }
+
+        location / {
+                if (!-e $request_filename) {
+                    rewrite ^(.*)$ /index.php?$1 last ;
+                    break;
+                }
+        }
+
+        location ~* ^/(doc|logs|app|sys)/ {
+                return 403;
+        }
+
+        location ~ .*\.(php|php5)?$
+        {
+                fastcgi_connect_timeout 300;
+                fastcgi_send_timeout 300;
+                fastcgi_read_timeout 300;
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+                fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include        fastcgi_params;
+        }
+}</code></pre>
+<p>将以上配置中的server_name和root改成你自己的，fastcgi_pass配成你的CGI进程端口。</p>
+<h2>权限配置</h2>
+<p>由于Gitblog的缓存机制需要写<code>app/cache</code>目录，必要时请查看并修改这个目录的权限，以确保你的PHP拥有写这个目录的权限。通常你只需要将此目录的所属者和组修改成CGI的运行账户。</p>
+<h2>运行</h2>
+<p>以上配置好以后，启动你的Nginx和CGI服务，上传Gitblog源代码到网站目录，通过浏览器访问解析到本机的域名观察页面效果。如果页面没有正常显示，通过错误码来检查你的CGI和Nginx配置。</p>
+	</article>
 	
 	</div>
 		</div>

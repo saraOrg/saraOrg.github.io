@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Your-GitBlog</title>
-	<meta name="keywords" content="GitBlog,博客,Markdown博客,jockchou">
-	<meta name="description" content="GitBlog是一个简单易用的Markdown博客系统">
+	<title>编写Gitblog博客|Your-GitBlog </title>
+	<meta name="keywords" content="GitBlog,GitBlog,GitBlog,博客,Markdown博客,jockchou">
+	<meta name="description" content="一篇Gitblog就是一个markdown文件，Gitblog使用解析markdown文件为html展示在网页上。所有的博客markdown文件必须放在posts文件夹里。后缀名只可以是xx.md或者xx.markdown。">
 	<link rel="stylesheet" href="/theme/simple/css/main.css?ver=1.0">
 	<link rel="alternate" type="application/rss+xml" title="Your-GitBlog" href="//feed.xml" />
 	
@@ -19,60 +19,62 @@
 </header>
 	<div class="page-content">
 		<div class="wrapper">
-			<div class="home">
-	<h1 class="page-heading">自豪地采用GitBlog</h1>
-		<ul class="post-list">
-						<li>
-			<span class="post-meta">2015-07-31</span>
-			<h2><a class="post-link" href="/blog/welcome.html">欢迎使用Gitblog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-30</span>
-			<h2><a class="post-link" href="/blog/gitblog/install.html">GitBlog安装</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-29</span>
-			<h2><a class="post-link" href="/blog/gitblog/struct.html">GitBlog目录结构</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-28</span>
-			<h2><a class="post-link" href="/blog/gitblog/config.html">GitBlog配置</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-27</span>
-			<h2><a class="post-link" href="/blog/gitblog/edit.html">编写Gitblog博客</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-26</span>
-			<h2><a class="post-link" href="/blog/gitblog/other-func.html">GitBlog评论，订阅，统计等功能</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-25</span>
-			<h2><a class="post-link" href="/blog/gitblog/cache.html">GitBlog的缓存机制</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-24</span>
-			<h2><a class="post-link" href="/blog/gitblog/export.html">Gitblog全站静态导出</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-23</span>
-			<h2><a class="post-link" href="/blog/gitblog/theme.html">Gitblog主题制作</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-22</span>
-			<h2><a class="post-link" href="/blog/gitblog/nginx.html">在Nginx上运行GitBlog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-21</span>
-			<h2><a class="post-link" href="/blog/gitblog/sae.html">在新浪SAE上运行GitBlog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-20</span>
-			<h2><a class="post-link" href="/blog/gitblog/github-pages.html">使用Gitblog和Github Pages搭建博客</a></h2>
-		</li>
-					</ul>
-	<p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-		
+			<div class="post">
+	<header class="post-header">
+		<h1 class="post-title">编写Gitblog博客</h1>
+		<p class="post-meta">2015-07-27 • jockchou • GitBlog,GitBlog</p>
+	</header>
+	<article class="post-content">
+		<!--
+author: jockchou
+date: 2015-07-27
+title: 编写Gitblog博客
+tags: GitBlog
+category: GitBlog
+status: publish
+summary: 一篇Gitblog就是一个markdown文件，Gitblog使用解析markdown文件为html展示在网页上。所有的博客markdown文件必须放在posts文件夹里。后缀名只可以是xx.md或者xx.markdown。
+-->
+<p>一篇Gitblog就是一个markdown文件，Gitblog使用解析markdown文件为html展示在网页上。所有的博客markdown文件必须放在<code>posts</code>文件夹里。后缀名只可以是<code>xx.md</code>或者<code>xx.markdown</code>。</p>
+<h2>发表一篇新博客</h2>
+<p>在<code>posts</code>里新建文件<code>helloworld.md</code>，输入以下内容：</p>
+<pre><code>&lt;!--
+author: jockchou
+date: 2015-07-30
+title: Hello World!
+tags: GitBlog
+category: GitBlog
+status: publish
+summary: 你好！Gitblog
+--&gt;
+
+你好！Gitblog
+
+Gitblog是一个简单易用的Markdown博客系统，它不需要数据库，没有管理后台功能，更新博客只需要添加你写好的Markdown文件即可。
+</code></pre>
+<p>文件里头部的注释用来定义博客的属性，这是一个规定的写法，必须放在文件的头部，每个属性独占一行。再次访问首页，就能看到这篇新发的博客了。如果没显示，请清除<code>app/cache</code>文件夹下的所有缓存文件试试看。</p>
+<pre><code>&lt;!--
+这里定义博客属性
+--&gt;</code></pre>
+<p><em>注意：markdown文件须采用utf8编码</em>，如果出现乱码，请修改编码为utf8。</p>
+<h2>博客属性定义</h2>
+<p>Gitblog目前针对博客定义了以下属性：</p>
+<ul>
+<li>author: 博客作者名称  </li>
+<li>date: 博客时间，用于页面显示  </li>
+<li>title: 博客标题  </li>
+<li>tags: 博客里的标签，多个用逗号或空格分隔  </li>
+<li>category: 博客分类，多个用逗号或空格分隔  </li>
+<li>status: 博客状态，<code>draft</code>表示草稿，Gitblog解析时会忽略草稿；<code>publish</code>表示发表状态，默认为publish  </li>
+<li>summary: 博客摘要信息  </li>
+</ul>
+<p>以上所有信息都是独占一行，暂不支持写在多行。</p>
+<h2>markdown路径与URL对应关系</h2>
+<p>Gitblog中<code>posts</code>中的markdown文件可以放在子文件夹中。举个例子，假如你的<code>helloword.md</code>文件目录如下：</p>
+<pre><code>posts/hello/helloword.md</code></pre>
+<p>你在浏览器访问的对应地址应该是这样的：</p>
+<pre><code>http://jockchou.gitblog.cn/blog/hello/helloworld.html</code></pre>
+<p>Gitblog对<code>posts</code>中子文件夹的层级没有限制，但请尽量不要太深，一般2，3层就够了。如果你在本地编写博客，使用FTP工具上传markdown文件到<code>posts</code>目录。</p>
+	</article>
 	
 	</div>
 		</div>

@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Your-GitBlog</title>
-	<meta name="keywords" content="GitBlog,博客,Markdown博客,jockchou">
-	<meta name="description" content="GitBlog是一个简单易用的Markdown博客系统">
+	<title>使用Gitblog和Github Pages搭建博客|Your-GitBlog </title>
+	<meta name="keywords" content="GitBlog,GitBlog,GitBlog,博客,Markdown博客,jockchou">
+	<meta name="description" content="如果你没有主机，也不想使用SAE，只有Github账号，你想用Gitblog搭建自己的博客系统也是可以简单地做到的，[Github pages](https">
 	<link rel="stylesheet" href="/theme/simple/css/main.css?ver=1.0">
 	<link rel="alternate" type="application/rss+xml" title="Your-GitBlog" href="//feed.xml" />
 	
@@ -19,60 +19,33 @@
 </header>
 	<div class="page-content">
 		<div class="wrapper">
-			<div class="home">
-	<h1 class="page-heading">自豪地采用GitBlog</h1>
-		<ul class="post-list">
-						<li>
-			<span class="post-meta">2015-07-31</span>
-			<h2><a class="post-link" href="/blog/welcome.html">欢迎使用Gitblog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-30</span>
-			<h2><a class="post-link" href="/blog/gitblog/install.html">GitBlog安装</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-29</span>
-			<h2><a class="post-link" href="/blog/gitblog/struct.html">GitBlog目录结构</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-28</span>
-			<h2><a class="post-link" href="/blog/gitblog/config.html">GitBlog配置</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-27</span>
-			<h2><a class="post-link" href="/blog/gitblog/edit.html">编写Gitblog博客</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-26</span>
-			<h2><a class="post-link" href="/blog/gitblog/other-func.html">GitBlog评论，订阅，统计等功能</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-25</span>
-			<h2><a class="post-link" href="/blog/gitblog/cache.html">GitBlog的缓存机制</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-24</span>
-			<h2><a class="post-link" href="/blog/gitblog/export.html">Gitblog全站静态导出</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-23</span>
-			<h2><a class="post-link" href="/blog/gitblog/theme.html">Gitblog主题制作</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-22</span>
-			<h2><a class="post-link" href="/blog/gitblog/nginx.html">在Nginx上运行GitBlog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-21</span>
-			<h2><a class="post-link" href="/blog/gitblog/sae.html">在新浪SAE上运行GitBlog</a></h2>
-		</li>
-								<li>
-			<span class="post-meta">2015-07-20</span>
-			<h2><a class="post-link" href="/blog/gitblog/github-pages.html">使用Gitblog和Github Pages搭建博客</a></h2>
-		</li>
-					</ul>
-	<p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-		
+			<div class="post">
+	<header class="post-header">
+		<h1 class="post-title">使用Gitblog和Github Pages搭建博客</h1>
+		<p class="post-meta">2015-07-20 • jockchou • GitBlog,GitBlog</p>
+	</header>
+	<article class="post-content">
+		<!--
+author: jockchou
+date: 2015-07-20
+title: 使用Gitblog和Github Pages搭建博客
+tags: GitBlog
+category: GitBlog
+status: publish
+summary: 如果你没有主机，也不想使用SAE，只有Github账号，你想用Gitblog搭建自己的博客系统也是可以简单地做到的，[Github pages](https://pages.github.com/)允许你基于Github分库建立一个站点。
+-->
+<h2>创建Github Pages仓库</h2>
+<p>你首先要创建一个新的Github仓库，这个仓库的名字必须为<code>username.github.io</code>，username为你的github账户名，必须一致。具体的步骤请参照这里<a href="https://pages.github.com/"><a href="https://pages.github.com/">https://pages.github.com/</a></a>。</p>
+<h2>导出Gitblog静态网站</h2>
+<p>Github pages不支持PHP程序运行，所以需要导出静态页面，将导出的<code>_site</code>目录下的所有文件复制到上一步创建的本地仓库，把仓库同步到Github上面。这样就好了，你可以通过域名username.github.io来访问刚才同步的Github pages了。</p>
+<h2>绑定域名到Github pages</h2>
+<p>你也可以通过绑定自己的域名到Github pages，使用自己的域名来访问Github pages。在你的仓库根目录下创建一个<code>CNAME</code>文件，文件中输出你的域名，例如：</p>
+<pre><code>jockchou.com</code></pre>
+<p>同步这个CNAME文件到Github仓库。然后就是要把你的域名解析到Github pages了。如果使用的是顶级域名解析A纪录，如果是子域名解析CNAME纪录，解析的纪录值是:</p>
+<pre><code>103.245.222.133</code></pre>
+<p>这个IP可能Github官方会变，请注意修改。详细的配置方法参考<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/">这里</a>。</p>
+<p>以上配置完成后，等域名解析生效后，就可以使用自己的域名访问了。</p>
+	</article>
 	
 	</div>
 		</div>
